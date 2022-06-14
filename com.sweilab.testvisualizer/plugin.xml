@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="com.sweilab.testvisualizer.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="com.sweilab.testvisualizer.commands.category"
+            name="Sample Command"
+            id="com.sweilab.testvisualizer.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.sweilab.testvisualizer.handlers.SampleHandler"
+            commandId="com.sweilab.testvisualizer.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.sweilab.testvisualizer.commands.sampleCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+     
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="com.sweilab.testvisualizer.toolbars.sampleToolbar">
+            <command
+                  id="com.sweilab.testvisualizer.toolbars.sampleCommand"
+                  commandId="com.sweilab.testvisualizer.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  tooltip="Scan for bugs">
+            </command>
+         </toolbar>
+      </menuContribution>
+       <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="com.eclipse.helloworld.menus.sampleMenu"
+               label="Visualizer"
+               mnemonic="M">
+            <command
+                  commandId="com.sweilab.testvisualizer.commands.sampleCommand"
+                  id="com.sweilab.testvisualizer.commands.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
